@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Sidebar from "./SideBar";
 
-function AboutMe() {
+function TryMe (props) {
   return (
     <Container fluid className="p-0 m-0">
       <Row className="g-0">
@@ -10,11 +10,11 @@ function AboutMe() {
 
         <Col xs={9} md={10} className="p-4 d-flex flex-column justify-content-center align-items-center" 
           style={{ marginLeft: "16.666%", minHeight: "100vh" }}>
-          <h1 className="text-center">About me</h1>
+          <h1 className="text-center">Try out this!</h1>
         </Col>
       </Row>
     </Container>
   );
 }
 
-export default AboutMe;
+export default TryMe;

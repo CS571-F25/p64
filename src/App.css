@@ -1,8 +1,22 @@
+html, body {
+  background-color: #d4ddcd;
+  height: 100%;
+  margin: 0;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  /* Remove or comment out these lines that limit the width */
+  /* max-width: 1280px; */
+  /* margin: 0 auto; */
+  /* padding: 2rem; */
+  
+  /* Keep full width and height */
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
   text-align: center;
+  background-color: #d4ddcd;
 }
 
 .logo {
