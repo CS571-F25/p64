@@ -1,0 +1,193 @@
+/* Chatbox Styles - Dual Theme Support */
+
+/* Dark Mode (Default) */
+:root {
+  --chatbox-border-gradient-start: #85a2c0;
+  --chatbox-border-gradient-end: #5d6780;
+  --chatbox-bg-gradient-start: #f9f4ee;
+  --chatbox-bg-gradient-end: #f5ede6;
+  --chatbox-bg-hover-start: #fffbf5;
+  --chatbox-bg-hover-end: #f9f4ee;
+  --chatbox-shadow: #5d6780;
+  --chatbox-triangle-border: #85a2c0;
+  --chatbox-triangle-hover: #85a2c0;
+  --chatbox-triangle-inner: #f9f2eb;
+  --chatbox-triangle-inner-hover: #fffbf5;
+  --chatbox-text-color: #333333;
+}
+
+/* Light Mode */
+.light-mode {
+  --chatbox-border-gradient-start: #89abdc;
+  --chatbox-border-gradient-end: #747dc2;
+  --chatbox-bg-gradient-start: #ffffff;
+  --chatbox-bg-gradient-end: #f8f9fa;
+  --chatbox-bg-hover-start: #ffffff;
+  --chatbox-bg-hover-end: #ecf0f1;
+  --chatbox-shadow: #687fa3;
+  --chatbox-triangle-border: #89abdc;
+  --chatbox-triangle-hover: #89abdc;
+  --chatbox-triangle-inner: #ffffff;
+  --chatbox-triangle-inner-hover: #ffffff;
+  --chatbox-text-color: #2c3e50;
+}
+
+.text-background-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.text-background-container.message-variant {
+  padding: 1rem 0;
+  height: auto;
+}
+
+.text-background-box {
+  position: relative;
+  background: linear-gradient(180deg, var(--chatbox-border-gradient-start) 20%, var(--chatbox-border-gradient-end) 100%);
+  border-radius: 16px;
+  padding: 6px;
+  max-width: 90%;
+  width: 90%;
+  filter: drop-shadow(3px 3px 3px var(--chatbox-shadow));
+  transition: all 0.3s ease;
+}
+
+.text-background-box:hover {
+  transform: translateY(-4px);
+  filter: drop-shadow(6px 6px 8px var(--chatbox-shadow));
+}
+
+.message-variant .text-background-box {
+  max-width: 100%;
+  width: 100%;
+}
+
+.text-background-box::after {
+  content: '';
+  display: block;
+  background: linear-gradient(180deg, var(--chatbox-bg-gradient-start) 50%, var(--chatbox-bg-gradient-end) 100%);
+  border-radius: 10px;
+  padding: 2rem;
+  min-height: 600px;
+  max-height: var(--max-height, 85vh);
+  transition: all 0.3s ease;
+}
+
+.text-background-box:hover::after {
+  background: linear-gradient(180deg, var(--chatbox-bg-hover-start) 50%, var(--chatbox-bg-hover-end) 100%);
+}
+
+.message-variant .text-background-box::after {
+  min-height: auto;
+  padding: 1.5rem;
+}
+
+.text-background-triangle {
+  position: absolute;
+  top: 96px;
+  left: -90px;
+  width: 0;
+  height: 0;
+  border-top: 7.5px solid transparent;
+  border-bottom: 60px solid transparent;
+  border-right: 90px solid var(--chatbox-triangle-border);
+  transition: all 0.3s ease;
+}
+
+.text-background-box:hover .text-background-triangle {
+  border-right-color: var(--chatbox-triangle-hover);
+}
+
+.text-background-triangle::after {
+  content: '';
+  position: absolute;
+  top: -2.5px;
+  left: 18px;
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 56px solid transparent;
+  border-right: 84px solid var(--chatbox-triangle-inner);
+  transition: all 0.3s ease;
+}
+
+.text-background-box:hover .text-background-triangle::after {
+  border-right-color: var(--chatbox-triangle-inner-hover);
+}
+
+.text-background-content {
+  color: var(--chatbox-text-color);
+  line-height: 1.6;
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  padding: 2rem;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.message-variant .text-background-content {
+  padding: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .text-background-container {
+    padding: 1rem;
+    align-items: flex-start;
+    padding-top: 2rem;
+  }
+  
+  .text-background-box {
+    width: 90%;
+    max-width: 90%;
+  }
+
+  .text-background-box::after {
+    min-height: 500px;
+    max-height: 80vh;
+    padding: 1.5rem;
+  }
+
+  .text-background-triangle {
+    left: -60px;
+    border-right: 60px solid var(--chatbox-triangle-border);
+  }
+
+  .text-background-triangle::after {
+    left: 12px;
+    border-right: 56px solid var(--chatbox-triangle-inner);
+  }
+}
+
+@media (max-height: 700px) {
+  .text-background-container {
+    align-items: flex-start;
+    padding-top: 1.5rem;
+  }
+
+  .text-background-box::after {
+    min-height: 450px;
+    max-height: 80vh;
+  }
+}
+
+@media (max-height: 600px) {
+  .text-background-container {
+    padding-top: 1rem;
+  }
+
+  .text-background-box::after {
+    min-height: 400px;
+    max-height: 75vh;
+    padding: 1.5rem;
+  }
+}

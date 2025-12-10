@@ -1,3 +1,28 @@
+/* Sidebar Styles - Dual Theme Support */
+
+/* Dark Mode (Default) */
+:root {
+  --sidebar-bg: #e0e4de;
+  --sidebar-icon-color: #debcb0;
+  --sidebar-icon-stroke: #0d85a6;
+  --sidebar-icon-hover-color: #dda6a5;
+  --sidebar-icon-hover-stroke: #3b78a7;
+  --sidebar-scrollbar-track: rgba(213, 164, 164, 0.3);
+  --sidebar-scrollbar-thumb: #d3b5ab;
+  --sidebar-scrollbar-thumb-hover: #d5a4a4;
+}
+
+/* Light Mode */
+.light-mode {
+  --sidebar-bg: #eaecf6;
+  --sidebar-icon-color: #efcad2;
+  --sidebar-icon-stroke: #5c99c2;
+  --sidebar-icon-hover-color: #ebb0c6;
+  --sidebar-icon-hover-stroke: #277fb9;
+  --sidebar-scrollbar-track: rgba(52, 152, 219, 0.1);
+  --sidebar-scrollbar-thumb: #3498db;
+  --sidebar-scrollbar-thumb-hover: #2980b9;
+}
 
 .sidebar-container {
   position: fixed;
@@ -6,10 +31,30 @@
   height: 100vh;
   overflow-x: hidden;
   overflow-y: hidden;
+  background-color: var(--sidebar-bg);
 }
 
 .sidebar-container.scrollable {
   overflow-y: auto;
+}
+
+/* Custom Scrollbar for Sidebar */
+.sidebar-container.scrollable::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar-container.scrollable::-webkit-scrollbar-track {
+  background: var(--sidebar-scrollbar-track);
+  border-radius: 4px;
+}
+
+.sidebar-container.scrollable::-webkit-scrollbar-thumb {
+  background: var(--sidebar-scrollbar-thumb);
+  border-radius: 4px;
+}
+
+.sidebar-container.scrollable::-webkit-scrollbar-thumb:hover {
+  background: var(--sidebar-scrollbar-thumb-hover);
 }
 
 .sidebar-content {
@@ -37,11 +82,11 @@
 
 /* base styling for the icon container */
 .sidebar-icon {
-  color: #d7b7ac;
+  color: var(--sidebar-icon-color);
   font-size: 60px;
   transition: all 0.3s ease;
   /* Add stroke to the SVG */
-  stroke: #009cb7;
+  stroke: var(--sidebar-icon-stroke);
   stroke-width: 6px;
   stroke-linejoin: round;
   stroke-linecap: round;
@@ -51,7 +96,7 @@
 
 /* Target all paths within the icon */
 .sidebar-icon path {
-  stroke: #009cb7;
+  stroke: var(--sidebar-icon-stroke);
   stroke-width: 28px;
   stroke-linejoin: round;
   stroke-linecap: round;
@@ -62,13 +107,13 @@
 
 /* hover effect */
 .sidebar-icon:hover {
-  color: #3e93ba;
-  stroke: #d5a4a4;
+  color: var(--sidebar-icon-hover-color);
+  stroke: var(--sidebar-icon-hover-stroke);
   scale: calc(1.2);
 }
 
 .sidebar-icon:hover path {
-  stroke: #d5a4a4;
+  stroke: var(--sidebar-icon-hover-stroke);
   scale: calc(1.1);
 }
 
@@ -77,12 +122,12 @@
 }
 
 .sidebar-link.active .sidebar-icon {
-  color: #3e93ba;
-  stroke: #d5a4a4;
+  color: var(--sidebar-icon-hover-color);
+  stroke: var(--sidebar-icon-hover-stroke);
   scale: calc(1.15);
 }
 
 .sidebar-link.active .sidebar-icon path {
-  stroke: #d5a4a4;
+  stroke: var(--sidebar-icon-hover-stroke);
   scale: calc(1.05);
 }

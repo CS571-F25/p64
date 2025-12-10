@@ -3,8 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { FaPaperPlane, FaChevronDown, FaChevronUp } from "react-icons/fa6";
 import Sidebar from "./SideBar";
 import "./Messages.css";
-
-const API_URL = 'http://localhost:5000/api';
+import { API_URL } from "../config";
 
 function Messages(props) {
   const [messages, setMessages] = useState([]);
@@ -17,6 +16,8 @@ function Messages(props) {
   const [submitting, setSubmitting] = useState(false);
   const [alert, setAlert] = useState({ show: false, message: '', type: '' });
   const [isExpanded, setIsExpanded] = useState(true);
+  const [selectedMessage, setSelectedMessage] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     fetchMessages();
@@ -86,6 +87,24 @@ function Messages(props) {
     setIsExpanded(!isExpanded);
   };
 
+  const truncateMessage = (text, wordLimit = 25) => {
+    const words = text.split(' ');
+    if (words.length <= wordLimit) {
+      return text;
+    }
+    return words.slice(0, wordLimit).join(' ') + '...';
+  };
+
+  const openModal = (message) => {
+    setSelectedMessage(message);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setSelectedMessage(null);
+  };
+
   return (
     <Container fluid className="p-0 m-0 messages-container">
       <Row className="g-0">
@@ -93,7 +112,7 @@ function Messages(props) {
           <Sidebar />
         </Col>
 
-        <Col xs={10} className="messages-content">
+        <Col xs={9} className="messages-content">
           {alert.show && (
             <div className={`message-alert message-alert-${alert.type}`}>
               {alert.message}
@@ -127,7 +146,12 @@ function Messages(props) {
             ) : (
               <div className="messages-list">
                 {messages.map((msg) => (
-                  <div key={msg._id} className="message-card">
+                  <div 
+                    key={msg._id} 
+                    className="message-card"
+                    onClick={() => openModal(msg)}
+                    style={{ cursor: 'pointer' }}
+                  >
                     <div className="message-card-header">
                       <div className="message-card-author">
                         <h5 className="message-card-name">{msg.name}</h5>
@@ -137,7 +161,7 @@ function Messages(props) {
                       </div>
                       <span className="message-card-timestamp">{formatDate(msg.timestamp)}</span>
                     </div>
-                    <p className="message-card-text">{msg.message}</p>
+                    <p className="message-card-text">{truncateMessage(msg.message)}</p>
                   </div>
                 ))}
               </div>
@@ -241,6 +265,27 @@ function Messages(props) {
               </>
             )}
           </div>
+
+          {/* Full Message Modal */}
+          {showModal && selectedMessage && (
+            <div className="message-modal-overlay" onClick={closeModal}>
+              <div className="message-modal-content" onClick={(e) => e.stopPropagation()}>
+                <button className="message-modal-close" onClick={closeModal}>
+                  ✕
+                </button>
+                <div className="message-modal-header">
+                  <h2 className="message-modal-name">{selectedMessage.name}</h2>
+                  {selectedMessage.email && (
+                    <p className="message-modal-email">{selectedMessage.email}</p>
+                  )}
+                  <p className="message-modal-timestamp">{formatDate(selectedMessage.timestamp)}</p>
+                </div>
+                <div className="message-modal-body">
+                  <p className="message-modal-text">{selectedMessage.message}</p>
+                </div>
+              </div>
+            </div>
+          )}
         </Col>
       </Row>
     </Container>

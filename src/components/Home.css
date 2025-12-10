@@ -1,0 +1,238 @@
+/* Home Page Styles - Dual Theme Support */
+
+/* Dark Mode (Default) */
+:root {
+  --home-bg-gradient-start: #e0e4de;
+  --home-bg-gradient-end: #9ec8d4;
+  --home-title-gradient-start: #a5dde6;
+  --home-title-gradient-end: #4e8bc9;
+  --home-title-shadow: #70778d;
+  --home-subtitle-color: #a6b3cb;
+  --home-text-color: #495b85;
+  --home-link-color: #57a1c6;
+  --home-link-hover: #2865a6;
+  --home-scrollbar-track: rgba(93, 103, 128, 0.1);
+  --home-scrollbar-thumb: #85a2c0;
+  --home-scrollbar-thumb-hover: #5d6780;
+}
+
+/* Light Mode */
+.light-mode {
+  --home-bg-gradient-start: #eaecf6;
+  --home-bg-gradient-end: #b8e0f0;
+  --home-title-gradient-start: #d9c5fe;
+  --home-title-gradient-end: #a198db;
+  --home-title-shadow: #6b6171;
+  --home-subtitle-color: #d4cee6;
+  --home-text-color: #505e8f;
+  --home-link-color: #ae95f3;
+  --home-link-hover: #453f94;
+  --home-scrollbar-track: rgba(52, 152, 219, 0.1);
+  --home-scrollbar-thumb: #3498db;
+  --home-scrollbar-thumb-hover: #2980b9;
+}
+
+.home-content {
+  background: linear-gradient(135deg, var(--home-bg-gradient-start) 40%, var(--home-bg-gradient-end) 100%);
+  min-height: 100vh;
+}
+
+/* Scrollable Wrapper */
+.home-container-wrapper {
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+  padding-right: 0.5rem;
+}
+
+/* Custom Scrollbar */
+.home-container-wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+.home-container-wrapper::-webkit-scrollbar-track {
+  background: var(--home-scrollbar-track);
+  border-radius: 4px;
+}
+
+.home-container-wrapper::-webkit-scrollbar-thumb {
+  background: var(--home-scrollbar-thumb);
+  border-radius: 4px;
+}
+
+.home-container-wrapper::-webkit-scrollbar-thumb:hover {
+  background: var(--home-scrollbar-thumb-hover);
+}
+
+/* Text Styles */
+.home-container h1 {
+  margin-top: 4rem;
+  margin-left: 4rem;
+  background: linear-gradient(135deg, var(--home-title-gradient-start) 0%, var(--home-title-gradient-end) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 4.5rem;
+  font-weight: 800;
+  font-family:'Bradley Hand', cursive;
+  text-align: left;
+  letter-spacing: 4.5px;
+  filter: drop-shadow(2px 3px 1.5px var(--home-title-shadow));
+  margin-bottom: 4rem;
+}
+
+.home-container h2 {
+  margin-top: 2rem;
+  margin-left: 4rem;
+  font-size: 2rem;
+  color: var(--home-subtitle-color);
+  font-weight: 400;
+  font-style: italic;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.home-container p {
+  font-size: 1.2rem;
+  margin-left: 4rem;
+  line-height: 1.8;
+  width: 80%;
+  color: var(--home-text-color);
+  text-align: left;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin-bottom: 0.2rem;
+}
+
+.home-container a {
+  color: var(--home-link-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.home-container a:hover {
+  color: var(--home-link-hover);
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .home-container h1 {
+    font-size: 3.5rem;
+    margin-left: 3rem;
+  }
+
+  .home-container h2 {
+    font-size: 1.8rem;
+    margin-left: 3rem;
+  }
+
+  .home-container p {
+    font-size: 1.1rem;
+    margin-left: 3rem;
+    width: 85%;
+  }
+}
+
+@media (max-width: 992px) {
+  .home-container h1 {
+    font-size: 3rem;
+    margin-left: 2rem;
+  }
+
+  .home-container h2 {
+    font-size: 1.6rem;
+    margin-left: 2rem;
+  }
+
+  .home-container p {
+    font-size: 1rem;
+    margin-left: 2rem;
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-container h1 {
+    font-size: 2.5rem;
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+    letter-spacing: 2px;
+  }
+
+  .home-container h2 {
+    font-size: 1.5rem;
+    margin-left: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .home-container p {
+    font-size: 1rem;
+    margin-left: 1.5rem;
+    width: 90%;
+  }
+}
+
+@media (max-width: 576px) {
+  .home-container h1 {
+    font-size: 2rem;
+    margin-left: 1rem;
+    letter-spacing: 1px;
+  }
+
+  .home-container h2 {
+    font-size: 1.3rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+  }
+
+  .home-container p {
+    font-size: 0.95rem;
+    margin-left: 1rem;
+    width: 92%;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-container h1 {
+    font-size: 1.75rem;
+    margin-left: 0.75rem;
+  }
+
+  .home-container h2 {
+    font-size: 1.2rem;
+    margin-left: 0.75rem;
+  }
+
+  .home-container p {
+    font-size: 0.9rem;
+    margin-left: 0.75rem;
+    width: 95%;
+  }
+}
+
+/* Small height screens */
+@media (max-height: 700px) {
+  .home-container h1 {
+    margin-top: 1rem;
+  }
+
+  .home-container h2 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-height: 600px) {
+  .home-container h1 {
+    margin-top: 0.5rem;
+    font-size: 2.5rem;
+  }
+
+  .home-container h2 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+}

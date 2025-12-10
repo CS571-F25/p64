@@ -1,0 +1,224 @@
+/* AboutMe.css - Dual Theme Support */
+
+/* Import or ensure these root variables match your sidebar */
+:root {
+  --about-bg: #e0e4de;
+  --about-text-primary: #2c3e50;
+  --about-text-secondary: #555;
+  --about-accent: #0d85a6;
+  --about-accent-hover: #3b78a7;
+  --about-card-bg: #ffffff;
+  --about-shadow: rgba(0, 0, 0, 0.1);
+  --about-border: #e0e4de;
+}
+
+.light-mode {
+  --about-bg: #eaecf6;
+  --about-text-primary: #2c3e50;
+  --about-text-secondary: #524a6c;
+  --about-accent: #5c99c2;
+  --about-accent-hover: #277fb9;
+  --about-card-bg: #f8f9fa;
+  --about-shadow: rgba(52, 152, 219, 0.15);
+  --about-border: #ecf0f1;
+}
+
+/* Main container styling */
+.about-me-container {
+  background-color: var(--about-bg);
+  min-height: 100vh;
+}
+
+/* Heading styles */
+.about-me-container h1 {
+  color: var(--about-text-primary);
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.about-me-container h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    var(--about-accent),
+    var(--about-accent-hover)
+  );
+  border-radius: 2px;
+}
+
+/* Introduction container */
+.intro-container {
+  background-color: var(--about-card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px var(--about-shadow);
+  border: 1px solid var(--about-border);
+  transition: all 0.3s ease;
+  animation: fadeIn 0.6s ease-in;
+}
+
+.intro-container:hover {
+  box-shadow: 0 6px 12px var(--about-shadow);
+  transform: translateY(-2px);
+}
+
+/* Introduction text */
+.intro-text {
+  color: var(--about-text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin-bottom: 0;
+  transition: all 0.3s ease;
+}
+
+/* Update the button styling in AboutMe.css */
+
+/* Expand/Collapse arrow button */
+.intro-container .btn-link {
+  color: var(--about-accent);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: 2px solid var(--about-accent);
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+}
+
+.intro-container .btn-link:hover {
+  color: var(--about-accent-hover);
+  background-color: rgba(13, 133, 166, 0.1);
+  border-color: var(--about-accent-hover);
+  transform: scale(1.1);
+}
+
+.intro-container .btn-link:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(13, 133, 166, 0.2);
+}
+
+/* Remove the arrow pseudo-element since we're using actual icons */
+.intro-container .btn-link::after {
+  display: none;
+}
+
+/* Add animation to the icon */
+.intro-container .btn-link svg {
+  transition: transform 0.3s ease;
+}
+
+.intro-container .btn-link:hover svg {
+  transform: translateY(3px);
+}
+
+/* Add arrow icon to button (optional) */
+.intro-container .btn-link::after {
+  content: '→';
+  transition: transform 0.3s ease;
+}
+
+.intro-container .btn-link:hover::after {
+  transform: translateX(3px);
+}
+
+/* Animation for text expansion */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth text transition */
+.intro-text {
+  animation: fadeIn 0.4s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about-me-container h1 {
+    font-size: 2rem;
+  }
+
+  .intro-container {
+    padding: 1.5rem;
+    margin: 0 1rem;
+  }
+
+  .intro-text {
+    font-size: 1rem;
+    text-align: left;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-me-container h1 {
+    font-size: 1.75rem;
+  }
+
+  .intro-container {
+    padding: 1rem;
+  }
+
+  .intro-text {
+    font-size: 0.95rem;
+  }
+}
+
+/* Additional content sections (for future expansion) */
+.about-section {
+  margin-top: 3rem;
+  padding: 2rem;
+  background-color: var(--about-card-bg);
+  border-radius: 12px;
+  border: 1px solid var(--about-border);
+  transition: all 0.3s ease;
+}
+
+.about-section h2 {
+  color: var(--about-text-primary);
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid var(--about-accent);
+  padding-left: 1rem;
+}
+
+/* Scrollbar styling for content (if needed) */
+.about-me-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.about-me-container::-webkit-scrollbar-track {
+  background: rgba(13, 133, 166, 0.1);
+  border-radius: 4px;
+}
+
+.about-me-container::-webkit-scrollbar-thumb {
+  background: var(--about-accent);
+  border-radius: 4px;
+}
+
+.about-me-container::-webkit-scrollbar-thumb:hover {
+  background: var(--about-accent-hover);
+}
