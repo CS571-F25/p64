@@ -46,8 +46,47 @@ const Message = mongoose.model('Message', messageSchema);
 
 // Routes
 
-// GET all messages
-app.get('/api/messages', async (req, res) => {
+// // GET all messages
+// app.get('/api/messages', async (req, res) => {
+//     try {
+//         const messages = await Message.find().sort({ timestamp: -1 });
+//         res.json(messages);
+//     } catch (error) {
+//         console.error('Error fetching messages:', error);
+//         res.status(500).json({ error: 'Failed to fetch messages' });
+//     }
+// });
+
+// // POST new message
+// app.post('/api/messages', async (req, res) => {
+//     try {
+//         const { name, email, message } = req.body;
+
+//         // Validation
+//         if (!name || !message) {
+//             return res.status(400).json({ error: 'Name and message are required' });
+//         }
+
+//         if (message.length > 1000) {
+//             return res.status(400).json({ error: 'Message is too long (max 1000 characters)' });
+//         }
+
+//         const newMessage = new Message({
+//             name: name.trim(),
+//             email: email ? email.trim() : undefined,
+//             message: message.trim()
+//         });
+
+//         await newMessage.save();
+//         res.status(201).json(newMessage);
+//     } catch (error) {
+//         console.error('Error creating message:', error);
+//         res.status(400).json({ error: 'Failed to create message' });
+//     }
+// });
+
+// Add these routes (duplicate without /api prefix)
+app.get('/messages', async (req, res) => {
     try {
         const messages = await Message.find().sort({ timestamp: -1 });
         res.json(messages);
@@ -57,12 +96,10 @@ app.get('/api/messages', async (req, res) => {
     }
 });
 
-// POST new message
-app.post('/api/messages', async (req, res) => {
+app.post('/messages', async (req, res) => {
     try {
         const { name, email, message } = req.body;
 
-        // Validation
         if (!name || !message) {
             return res.status(400).json({ error: 'Name and message are required' });
         }
