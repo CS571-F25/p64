@@ -23,7 +23,7 @@ function Home() {
                 <h1>Hi! This is ALICE :)</h1>
                 <h2>Welcome to my personal website</h2>
                 <p>I share my projects, thoughts, and experiences on this website.</p>
-                  <p>Feel free to explore and <a href="/#/messages">leave a message</a> if you have something to share or comment on!</p>
+                  <p>Feel free to explore and <a href="#/messages">leave a message</a> if you have something to share or comment on!</p>
                 <br />
                 <br />
                 <p>Feel free to visit my <a href="https://github.com/REDY-a" target="_blank" rel="noopener noreferrer"> github profile</a> here.</p>
