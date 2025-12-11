@@ -4,12 +4,12 @@
 :root {
   --msg-bg-primary: #e0e4de;
   --msg-bg-secondary: #fcf5f0;
-  --msg-card-gradient-start: #e5cfa5;
-  --msg-card-gradient-end: #dcb87e;
-  --msg-card-gradient-alt1: #c0e2a7;
-  --msg-card-gradient-alt1-end: #aed181;
-  --msg-card-gradient-alt2: #d0c0e3;
-  --msg-card-gradient-alt2-end: #b89bd1;
+  --msg-card-gradient-start: #dbcaab;
+  --msg-card-gradient-end: #d0b890;
+  --msg-card-gradient-alt1: #bad1ab;
+  --msg-card-gradient-alt1-end: #b1c498;
+  --msg-card-gradient-alt2: #ccc3d6;
+  --msg-card-gradient-alt2-end: #ae9cbe;
   --msg-card-shadow: #656e83;
   --msg-card-shadow-hover: #696f82;
   --msg-text-primary: #1b2a35;
