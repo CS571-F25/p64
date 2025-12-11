@@ -4,12 +4,12 @@
 :root {
   --msg-bg-primary: #e0e4de;
   --msg-bg-secondary: #fcf5f0;
-  --msg-card-gradient-start: #dfd0b4;
-  --msg-card-gradient-end: #d4b482;
+  --msg-card-gradient-start: #e5cfa5;
+  --msg-card-gradient-end: #dcb87e;
   --msg-card-gradient-alt1: #c0e2a7;
   --msg-card-gradient-alt1-end: #aed181;
-  --msg-card-gradient-alt2: #c0e3d0;
-  --msg-card-gradient-alt2-end: #9bd1b0;
+  --msg-card-gradient-alt2: #d0c0e3;
+  --msg-card-gradient-alt2-end: #b89bd1;
   --msg-card-shadow: #656e83;
   --msg-card-shadow-hover: #696f82;
   --msg-text-primary: #1b2a35;
@@ -46,8 +46,8 @@
   --msg-bg-secondary: #ffffff;
   --msg-card-gradient-start: #f6eecc;
   --msg-card-gradient-end: #efddae;
-  --msg-card-gradient-alt1: #efe3b7;
-  --msg-card-gradient-alt1-end: #e7c696;
+  --msg-card-gradient-alt1: #f5cfc4;
+  --msg-card-gradient-alt1-end: #debab7;
   --msg-card-gradient-alt2: #cfeacf;
   --msg-card-gradient-alt2-end: #b3d4ac;
   --msg-card-shadow: hsla(231, 14%, 46%, 0.461);
